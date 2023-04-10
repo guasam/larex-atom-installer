@@ -12,25 +12,16 @@ use Exception;
 class AtomInstaller extends LibraryInstaller
 {
     /**
-     * Target package type supported by this installer.
+     * Supported package type supported by this installer.
      */
-    public const TARGET_PACKAGE_TYPE = 'larex-atom';
+    const ATOM_PACKAGE_TYPE = 'larex-atom';
 
     /**
      * {@inheritDoc}
      */
     public function getInstallPath(PackageInterface $package): string
     {
-        $suffix = '-atom';
-        $name   = basename($package->getName());
-
-        if (str_ends_with($name, $suffix)) {
-            $name = trim($name, $suffix);
-        } else {
-            throw new Exception("Ensure your package's name ({$package->getName()}) is in the format [<vendor>/<name>-atom]");
-        }
-
-        return 'atoms' . DIRECTORY_SEPARATOR . $name;
+        return $this->getAtomInstallPath($package->getName());
     }
 
     /**
@@ -38,6 +29,25 @@ class AtomInstaller extends LibraryInstaller
      */
     public function supports(string $packageType): bool
     {
-        return $packageType === static::TARGET_PACKAGE_TYPE;
+        return $packageType === self::ATOM_PACKAGE_TYPE;
+    }
+
+    /**
+     * Get atom installation path.
+     *
+     * @return string
+     */
+    private function getAtomInstallPath(string $packageName): string
+    {
+        $suffix = '-atom';
+        $name   = basename($packageName);
+
+        if (str_ends_with($name, $suffix)) {
+            $name = trim($name, $suffix);
+        } else {
+            throw new Exception("Ensure your package's name ({$packageName}) is in the format [<vendor>/<name>-atom]");
+        }
+
+        return 'atoms' . DIRECTORY_SEPARATOR . $name;
     }
 }
