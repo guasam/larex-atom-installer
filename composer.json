@@ -1,6 +1,7 @@
 {
   "name": "guasam/larex-atom-installer",
   "description": "Atom Installer composer plugin for Larex Framework.",
+  "version": "0.0.3",
   "type": "composer-plugin",
   "autoload": {
     "psr-4": {
