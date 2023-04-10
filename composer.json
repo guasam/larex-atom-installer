@@ -1,0 +1,20 @@
+{
+  "name": "guasam/larex-atom-installer",
+  "description": "Atom Installer composer plugin for Larex Framework.",
+  "type": "composer-plugin",
+  "autoload": {
+    "psr-4": {
+      "Guasam\\LarexAtomInstaller\\": "src/"
+    }
+  },
+  "extra": {
+    "class": "Guasam\\LarexAtomInstaller\\ComposerPlugin"
+  },
+  "require": {
+    "composer-plugin-api": "^2.1",
+    "php": "^8.1"
+  },
+  "require-dev": {
+    "composer/composer": "^2.0"
+  }
+}
