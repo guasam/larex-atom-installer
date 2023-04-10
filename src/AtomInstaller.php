@@ -6,7 +6,7 @@ use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 
 /**
- * Atom Installer - Larex Framework
+ * Atom Installer for Larex Framework
  */
 class AtomInstaller extends LibraryInstaller
 {
