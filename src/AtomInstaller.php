@@ -19,7 +19,7 @@ class AtomInstaller extends LibraryInstaller
     /**
      * {@inheritDoc}
      */
-    public function getInstallPath(PackageInterface $package): string
+    public function getInstallPath(PackageInterface $package)
     {
         return $this->getAtomInstallPath($package->getName());
     }
@@ -27,7 +27,7 @@ class AtomInstaller extends LibraryInstaller
     /**
      * {@inheritDoc}
      */
-    public function supports(string $packageType): bool
+    public function supports(string $packageType)
     {
         return $packageType === self::ATOM_PACKAGE_TYPE;
     }
